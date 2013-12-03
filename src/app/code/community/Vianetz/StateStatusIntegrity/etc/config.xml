@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Vianetz_StateStatusIntegrity>
+            <version>1.0.0</version>
+        </Vianetz_StateStatusIntegrity>
+    </modules>
+    <global>
+        <models>
+            <vianetz_statestatusintegrity>
+                <class>Vianetz_StateStatusIntegrity_Model</class>
+            </vianetz_statestatusintegrity>
+        </models>
+        <helpers>
+            <vianetz_statestatusintegrity>
+                <class>Vianetz_StateStatusIntegrity_Helper</class>
+            </vianetz_statestatusintegrity>
+        </helpers>
+        <events>
+            <sales_order_save_before>
+                <observers>
+                    <vianetz_statestatusintegrity_check_integrity>
+                        <class>vianetz_statestatusintegrity/orderstatus</class>
+                        <method>checkStateStatusIntegrity</method>
+                    </vianetz_statestatusintegrity_check_integrity>
+                </observers>
+            </sales_order_save_before>
+        </events>
+    </global>
+</config>
